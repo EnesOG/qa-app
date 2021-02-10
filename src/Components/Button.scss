@@ -5,17 +5,17 @@
 	cursor: pointer;
 	outline: none;
 
-	&__.primary {
+	&__primary {
 		background: var(--primary-color);
 		color: white;
 	}
 
-	&__.secondary {
+	&__secondary {
 		background: var(--secondary-color);
 		color: white;
 	}
 
-	&__.danger {
+	&__danger {
 		background: var(--danger-color);
 		color: white;
 	}
