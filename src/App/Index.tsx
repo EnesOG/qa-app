@@ -49,7 +49,7 @@ const App = () => {
 			</div>
 			<Spacing>
 				<Button
-					disabled={data.length > 1}
+					disabled={data.length < 2}
 					onClick={() => dispatch(toggleSort())}
 					variant="secondary"
 				>
