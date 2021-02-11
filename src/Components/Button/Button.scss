@@ -4,6 +4,7 @@
 	border-radius: 1.8rem;
 	cursor: pointer;
 	outline: none;
+	transition: all 300ms;
 	display: block;
 
 	&__primary {
@@ -19,5 +20,10 @@
 	&__danger {
 		background: var(--danger-color);
 		color: white;
+	}
+
+	&__disabled {
+		background: grey;
+		cursor: not-allowed;
 	}
 }

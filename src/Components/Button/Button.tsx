@@ -7,11 +7,22 @@ interface ButtonProps
 		ButtonHTMLAttributes<HTMLButtonElement>,
 		HTMLButtonElement
 	> {
+	disabled?: boolean;
 	variant?: "primary" | "secondary" | "danger";
 }
 
-const Button = ({ variant = "primary", ...props }: ButtonProps) => {
-	return <button className={`button button__${variant}`} {...props} />;
+const Button = ({
+	disabled = false,
+	variant = "primary",
+	...props
+}: ButtonProps) => {
+	return (
+		<button
+			disabled={disabled}
+			className={`button button__${variant} ${disabled && "button__disabled"}`}
+			{...props}
+		/>
+	);
 };
 
 export default Button;

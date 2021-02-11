@@ -52,7 +52,11 @@ const App = () => {
 					Sort questions
 				</Button>
 			</Spacing>
-			<Button onClick={() => dispatch(deleteAll())} variant="danger">
+			<Button
+				disabled={data.length === 0}
+				onClick={() => dispatch(deleteAll())}
+				variant="danger"
+			>
 				Delete all questions
 			</Button>
 
@@ -83,7 +87,9 @@ const App = () => {
 							label="What is your answer?"
 						/>
 					</Spacing>
-					<Button>Create question</Button>
+					<Button disabled={Object.keys(errors).length !== 0}>
+						Create question
+					</Button>
 				</form>
 			</Spacing>
 		</div>
