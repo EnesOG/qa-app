@@ -17,9 +17,13 @@ const initialState: QuestionAndAnswerState = {
     {
       question: "Is this a good application?",
       answer: "Yes this is a good application!"
+    },
+    {
+      question: "Xs this a good application?",
+      answer: "Yes this is a good application!"
     }
   ],
-  sort:false
+  sort:false,
 }
 
 
@@ -28,17 +32,22 @@ const initialState: QuestionAndAnswerState = {
   name: 'Q/A',
   initialState,
   reducers: {
-    addQuestion: (state,{payload}:PayloadAction) => {
-
+    addQuestion: (state,{payload}:PayloadAction<QuestionAndAnswer>) => {
+      state.data = [...state.data,payload]
     },
-    deleteAll:(state,{payload}:PayloadAction) => {
-      state = {...state, data:[]}
-      return state;
-    
+    deleteAll:(state) => {
+     state.data = []
+    },
+    deleteEntry:(state,{payload}:PayloadAction<number>) => {
+      state.data = state.data.splice(payload,payload);
+     },
+
+    toggleSort:(state) => {
+     state.sort = !state.sort
     }
   },
 })
 
-export const {addQuestion,deleteAll} = qaReducer.actions;
+export const {addQuestion,deleteAll,toggleSort,deleteEntry} = qaReducer.actions;
 export const qaSelector = (state: RootState) => state.qaReducer
 export default qaReducer.reducer;
