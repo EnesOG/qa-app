@@ -48,7 +48,11 @@ const App = () => {
 				)}
 			</div>
 			<Spacing>
-				<Button onClick={() => dispatch(toggleSort())} variant="secondary">
+				<Button
+					disabled={data.length === 0}
+					onClick={() => dispatch(toggleSort())}
+					variant="secondary"
+				>
 					Sort questions
 				</Button>
 			</Spacing>
