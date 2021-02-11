@@ -1,0 +1,13 @@
+.input {
+	padding: 0.5rem;
+	border: 1px solid var(--primary-color);
+
+	&__label {
+		display: block;
+		margin-bottom: 0.25rem;
+	}
+
+	&__error {
+		color: var(--danger-color);
+	}
+}
