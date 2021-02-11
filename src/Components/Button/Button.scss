@@ -4,6 +4,7 @@
 	border-radius: 1.8rem;
 	cursor: pointer;
 	outline: none;
+	display: block;
 
 	&__primary {
 		background: var(--primary-color);
