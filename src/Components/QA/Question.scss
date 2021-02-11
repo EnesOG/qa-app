@@ -1,8 +1,19 @@
 .qa {
-	display: inline-block;
+	display: block;
+
 	padding: 1rem 1.5rem;
 	border: 1px solid var(--primary-color);
 	cursor: pointer;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__delete {
+		color: var(--danger-color);
+	}
 
 	&__container {
 		margin-bottom: 1rem;
