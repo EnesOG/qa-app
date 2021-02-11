@@ -1,0 +1,23 @@
+.qa {
+	display: inline-block;
+	padding: 1rem 1.5rem;
+	border: 1px solid var(--primary-color);
+	cursor: pointer;
+
+	&__container {
+		margin-bottom: 1rem;
+	}
+
+	&__question {
+		font-size: 1.4rem;
+		margin-bottom: 1rem;
+	}
+
+	&__answer {
+		display: none;
+
+		&-active {
+			display: block;
+		}
+	}
+}
