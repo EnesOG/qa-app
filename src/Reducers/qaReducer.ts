@@ -9,6 +9,7 @@ export type QuestionAndAnswer = {
 
 export type QuestionAndAnswerState = {
   data: QuestionAndAnswer[];
+  sort: boolean;
 }
 
 const initialState: QuestionAndAnswerState = {
@@ -18,20 +19,26 @@ const initialState: QuestionAndAnswerState = {
       answer: "Yes this is a good application!"
     }
   ],
+  sort:false
 }
 
 
 
-export const qaReducer = createSlice({
+ const qaReducer = createSlice({
   name: 'Q/A',
   initialState,
   reducers: {
-    addQuestion: (state,{payload}:PayloadAction) =>{
+    addQuestion: (state,{payload}:PayloadAction) => {
 
+    },
+    deleteAll:(state,{payload}:PayloadAction) => {
+      state = {...state, data:[]}
+      return state;
+    
     }
   },
 })
 
-export const {addQuestion} = qaReducer.actions;
+export const {addQuestion,deleteAll} = qaReducer.actions;
 export const qaSelector = (state: RootState) => state.qaReducer
 export default qaReducer.reducer;
