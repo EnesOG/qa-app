@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from '.';
+import { nanoid } from 'nanoid'
 
 
 export type QuestionAndAnswer = {
   question: string;
   answer: string;
+  id:string;
 }
 
 export type QuestionAndAnswerState = {
@@ -16,12 +18,9 @@ const initialState: QuestionAndAnswerState = {
   data: [
     {
       question: "Is this a good application?",
-      answer: "Yes this is a good application!"
+      answer: "Yes this is a good application!",
+      id: nanoid(),
     },
-    {
-      question: "Xs this a good application?",
-      answer: "Yes this is a good application!"
-    }
   ],
   sort:false,
 }
@@ -38,8 +37,8 @@ const initialState: QuestionAndAnswerState = {
     deleteAll:(state) => {
      state.data = []
     },
-    deleteEntry:(state,{payload}:PayloadAction<number>) => {
-      state.data = state.data.splice(payload,payload);
+    deleteEntry:(state,{payload}:PayloadAction<string>) => {
+      state.data = state.data.filter(q => q.id !== payload);
      },
 
     toggleSort:(state) => {
